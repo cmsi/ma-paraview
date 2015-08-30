@@ -1,11 +1,18 @@
 --- a/VTK/Rendering/vtkOpenGLExtensionManager.cxx
 +++ b/VTK/Rendering/vtkOpenGLExtensionManager.cxx
-@@ -390,7 +390,7 @@
+@@ -388,10 +388,11 @@
  
-   if (!success)
-     {
+   int success = this->SafeLoadExtension(name);
+ 
+-  if (!success)
+-    {
 -    vtkErrorMacro("Extension " << name << " could not be loaded.");
-+    vtkWarningMacro("Extension " << name << " could not be loaded.");
-     }
+-    }
++  // comment out for VirtualBox - 2015-08-30 ST
++  // if (!success)
++  //   {
++  //   vtkErrorMacro("Extension " << name << " could not be loaded.");
++  //   }
  }
  
+ int vtkOpenGLExtensionManager::LoadSupportedExtension(const char *name)
