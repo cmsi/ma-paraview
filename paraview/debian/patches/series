@@ -1,0 +1,12 @@
+removegitcheck.patch
+fix_manpages_errors.patch
+paraview-fix-libav07-compat.patch
+fix_vtkxdmf_xt.patch
+removesqlite.patch
+install_htmldoc.patch
+kwprocessxml_rpath.patch
+fix_format_not_a_string_FTBFS.patch
+workaround_strict-aliasing_in_mpi4py_MPI.patch
+fix_FTBFS_boost149.patch
+fix_FTBFS_gcc-4.7.patch
+install_all_cmake_files.patch

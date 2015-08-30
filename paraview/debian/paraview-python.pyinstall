@@ -1,0 +1,3 @@
+debian/tmp/usr/lib/paraview/site-packages/paraview/*.py paraview
+debian/tmp/usr/lib/paraview/site-packages/paraview/demos/*.py paraview.demos
+debian/tmp/usr/lib/paraview/site-packages/paraview/vtk/*.py paraview.vtk

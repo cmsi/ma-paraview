@@ -1,0 +1,24 @@
+Description: Fix FTBFS "format not a string literal and no format arg"
+Author: Anton Gladky <gladky.anton@gmail.com>
+Last-Update: 2011-10-14
+
+--- a/Utilities/mpi4py/Library/mpi4py_MPI.c
++++ b/Utilities/mpi4py/Library/mpi4py_MPI.c
+@@ -3619,7 +3619,7 @@
+  *                                   "cleanup with Py_AtExit()")
+  *         return 0
+  */
+-        PySys_WriteStderr(__pyx_k_109);
++        PySys_WriteStderr("%s",__pyx_k_109);
+         goto __pyx_L5;
+       }
+       __pyx_L5:;
+@@ -3874,7 +3874,7 @@
+  *                           "cleanup with Py_AtExit()")
+  *     return 0
+  */
+-    PySys_WriteStderr(__pyx_k_112);
++    PySys_WriteStderr("%s",__pyx_k_112);
+     goto __pyx_L11;
+   }
+   __pyx_L11:;

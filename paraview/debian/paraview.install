@@ -1,0 +1,18 @@
+debian/*.xpm usr/share/pixmaps/
+debian/*.desktop usr/share/applications/
+usr/bin/paraview
+usr/lib/paraview/paraview
+usr/bin/pvbatch
+usr/lib/paraview/pvbatch
+usr/bin/pvblot
+usr/lib/paraview/pvblot.py
+usr/bin/pvdataserver
+usr/lib/paraview/pvdataserver
+usr/bin/pvrenderserver
+usr/lib/paraview/pvrenderserver
+usr/bin/pvserver
+usr/lib/paraview/pvserver
+usr/lib/paraview/*.so.*
+usr/lib/paraview/*.so
+usr/lib/paraview/CMake/*.png
+usr/lib/paraview/CMake/branded_splash.png usr/share/doc/paraview/images/CMake/

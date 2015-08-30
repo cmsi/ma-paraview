@@ -1,0 +1,15 @@
+Description: removes git's check
+Author: Mathieu Malaterre <mathieu.malaterre@gmail.com>
+Last-Update: 2011-09-07
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -250,7 +250,7 @@
+ 
+ # Check that the Git submodules have been initialized correctly, and the local
+ # Git hooks have been installed.
+-INCLUDE(ParaViewCheckSourceTree)
++#INCLUDE(ParaViewCheckSourceTree)
+ 
+ INCLUDE(ParaViewMacros)
+ INCLUDE(ParaViewCommon)

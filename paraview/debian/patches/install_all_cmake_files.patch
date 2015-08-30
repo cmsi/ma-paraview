@@ -1,0 +1,73 @@
+Description: CMake files were not being installed correctly.
+             Fixed install rule to install all files under the CMake 
+             directory to ensure that
+             new files don't get missed in the future.
+Author: Utkarsh Ayachit <utkarsh.ayachit@kitware.com>
+Applied-Upstream: http://paraview.org/gitweb?p=ParaView.git;a=commitdiff;h=801dbb6b2a1ddbb059e2311f83dc6723edaf18d8
+Reviewed-by: Anton Gladky <gladky.anton@gmail.com>
+Bug: http://paraview.org/Bug/view.php?id=13065
+Bug-Debian: http://bugs.debian.org/677492
+Last-Update: 2012-06-15
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -395,50 +395,16 @@
+       DESTINATION ${PV_INSTALL_INCLUDE_DIR}
+       COMPONENT Development)
+ 
+-  SET(cmakeDevFiles
+-      ${ParaView_CMAKE_DIR}/branded_splash.png
+-      ${ParaView_SOURCE_DIR}/ParaViewUse.cmake
+-      ${ParaView_CMAKE_DIR}/ParaViewMacros.cmake
+-      ${ParaView_CMAKE_DIR}/ParaViewPlugins.cmake
+-      ${ParaView_CMAKE_DIR}/ParaViewBranding.cmake
+-      ${ParaView_CMAKE_DIR}/ParaViewBrandingCPack.cmake
+-      ${ParaView_CMAKE_DIR}/pqParaViewPlugin.cxx.in
+-      ${ParaView_CMAKE_DIR}/pqParaViewPlugin.h.in
+-      ${ParaView_CMAKE_DIR}/branded_paraview_initializer.cxx.in
+-      ${ParaView_CMAKE_DIR}/branded_paraview_main.cxx.in
+-      ${ParaView_CMAKE_DIR}/branded_paraview_initializer.h.in
+-      ${ParaView_CMAKE_DIR}/ParaViewCPackOptions.cmake.in
+-      ${ParaView_CMAKE_DIR}/pv-forward.c.in
+-      # originaly from Qt/Components
+-      ${ParaView_CMAKE_DIR}/pqObjectPanelImplementation.h.in
+-      ${ParaView_CMAKE_DIR}/pqObjectPanelImplementation.cxx.in
+-      ${ParaView_CMAKE_DIR}/pqDisplayPanelImplementation.h.in
+-      ${ParaView_CMAKE_DIR}/pqDisplayPanelImplementation.cxx.in
+-      ${ParaView_CMAKE_DIR}/pqViewOptionsImplementation.h.in
+-      ${ParaView_CMAKE_DIR}/pqViewOptionsImplementation.cxx.in
+-      ${ParaView_CMAKE_DIR}/pqActionGroupImplementation.h.in
+-      ${ParaView_CMAKE_DIR}/pqActionGroupImplementation.cxx.in
+-      ${ParaView_CMAKE_DIR}/pqViewFrameActionGroupImplementation.h.in
+-      ${ParaView_CMAKE_DIR}/pqViewFrameActionGroupImplementation.cxx.in
+-      ${ParaView_CMAKE_DIR}/pqDockWindowImplementation.h.in
+-      ${ParaView_CMAKE_DIR}/pqDockWindowImplementation.cxx.in
+-      ${ParaView_CMAKE_DIR}/pqDisplayPanelDecoratorImplementation.h.in
+-      ${ParaView_CMAKE_DIR}/pqDisplayPanelDecoratorImplementation.cxx.in
+-      ${ParaView_CMAKE_DIR}/pq3DWidgetImplementation.h.in
+-      ${ParaView_CMAKE_DIR}/pq3DWidgetImplementation.cxx.in
+-      # originaly from Qt/Core
+-      ${ParaView_CMAKE_DIR}/pqViewModuleImplementation.h.in
+-      ${ParaView_CMAKE_DIR}/pqViewModuleImplementation.cxx.in
+-      ${ParaView_CMAKE_DIR}/pqAutoStartImplementation.h.in
+-      ${ParaView_CMAKE_DIR}/pqAutoStartImplementation.cxx.in
+-      ${ParaView_CMAKE_DIR}/pqGraphLayoutStrategyImplementation.h.in
+-      ${ParaView_CMAKE_DIR}/pqGraphLayoutStrategyImplementation.cxx.in
+-      ${ParaView_CMAKE_DIR}/pqTreeLayoutStrategyImplementation.h.in
+-      ${ParaView_CMAKE_DIR}/pqTreeLayoutStrategyImplementation.cxx.in)
++  # install all cmake files.
+   INSTALL(
+-      FILES ${cmakeDevFiles} 
+-      DESTINATION ${PV_INSTALL_CMAKE_DIR}
+-      COMPONENT Development)
++      # the extra "/" is essential to ensure we don't end up with an extra
++      # directory at the install location.
++      DIRECTORY "${ParaView_CMAKE_DIR}/" 
++      DESTINATION ${PV_INSTALL_CMAKE_DIR})
++  
++  INSTALL( FILES ${ParaView_SOURCE_DIR}/ParaViewUse.cmake 
++    DESTINATION ${PV_INSTALL_CMAKE_DIR}
++  )
+       
+   # Re-configure for the install.
+   SET(SOURCE_TREE                                  ${ParaView_SOURCE_DIR})

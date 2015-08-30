@@ -1,0 +1,14 @@
+Description: Fixes the following FTBFS: 
+ warning: dereferencing type-punned pointer will break strict-aliasing 
+ rules [-Wstrict-aliasing]
+Author: Anton Gladky <gladky.anton@gmail.com>
+Last-Update: 2011-12-14
+
+--- a/Utilities/mpi4py/Library/CMakeLists.txt
++++ b/Utilities/mpi4py/Library/CMakeLists.txt
+@@ -1,4 +1,5 @@
+ FIND_PACKAGE(MPI)
++SET (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fno-strict-aliasing")
+ INCLUDE_DIRECTORIES(
+   ${MPI_INCLUDE_PATH}
+   ${PYTHON_INCLUDE_PATH}

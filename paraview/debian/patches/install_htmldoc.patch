@@ -1,0 +1,19 @@
+Description: Fix installing of html-documentation
+Author: Mathieu Malaterre <mathieu.malaterre@gmail.com>
+Last-Update: 2011-09-14
+
+--- a/Documentation/CMakeLists.txt
++++ b/Documentation/CMakeLists.txt
+@@ -56,7 +56,11 @@
+       DESTINATION ${PV_INSTALL_DOC_DIR}
+       COMPONENT Runtime)
+ ENDIF()
+-
++FILE(GLOB htmlfiles "${CMAKE_CURRENT_BINARY_DIR}/*.html")
++install(FILES ${htmlfiles}
++  DESTINATION ${PV_INSTALL_DOC_DIR})
++install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/Book
++  DESTINATION ${PV_INSTALL_DOC_DIR})
+ # Development
+ IF (NOT PV_INSTALL_NO_DEVELOPMENT)
+   INSTALL(

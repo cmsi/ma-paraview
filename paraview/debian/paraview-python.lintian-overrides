@@ -1,0 +1,4 @@
+paraview-python: binary-or-shlib-defines-rpath usr/bin/pvpython /usr/lib/paraview
+paraview-python: binary-or-shlib-defines-rpath usr/bin/vtkWrapHierarchy /usr/lib/paraview
+paraview-python: binary-or-shlib-defines-rpath usr/bin/vtkWrapPython /usr/lib/paraview
+paraview-python: binary-or-shlib-defines-rpath usr/bin/vtkWrapPythonInit /usr/lib/paraview

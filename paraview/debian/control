@@ -1,0 +1,113 @@
+Source: paraview
+Section: science
+Priority: extra
+Maintainer: Debian Science Team <debian-science-maintainers@lists.alioth.debian.org>
+DM-Upload-Allowed: yes
+Uploaders: Christophe Prud'homme <prudhomm@debian.org>, 
+ Mathieu Malaterre <mathieu.malaterre@gmail.com>, 
+ Anton Gladky <gladky.anton@gmail.com>
+Build-Depends: debhelper (>= 8), cmake (>= 2.6.3), 
+ libqt4-dev (>= 4.3.3-2), libsqlite3-dev,
+ qt4-dev-tools, libboost-all-dev, 
+ libavformat-dev (>= 0.7.1),
+ libavutil-dev, libavcodec-dev, libswscale-dev, python-dev, python-support, 
+ libglu1-mesa-dev, libxt-dev, python-all, 
+ python-all-dev (>= 2.7), python-all-dev (<< 2.8),
+ libxext-dev, doxygen, graphviz, gnuplot, libtiff-dev, libpng-dev, libjpeg-dev,
+ libxml2-dev, libexpat-dev,
+ zlib1g-dev, libfreetype6-dev, libmysqlclient-dev, libpq-dev, libtheora-dev, 
+ libogg-dev, mpi-default-dev, libhdf5-dev (>= 1.8.8), hdf5-tools,
+ libgl2ps-dev, libqtwebkit-dev (>=2.2.1)
+Standards-Version: 3.9.3
+Homepage: http://www.paraview.org/
+Vcs-Git: git://git.debian.org/git/debian-science/packages/paraview.git
+Vcs-Browser: http://git.debian.org/?p=debian-science/packages/paraview.git
+
+Package: paraview
+Architecture: any
+Depends: qt4-dev-tools, tcl8.5 | tclsh, ${shlibs:Depends}, ${misc:Depends}
+Suggests: hdf5-tools, h5utils
+Recommends: mpi-default-bin, paraview-python, paraview-doc
+Description: Parallel Visualization Application
+ ParaView is an open-source, multi-platform application designed to
+ visualize data sets of size varying from small to very large. The
+ goals of the ParaView project include the following:
+ .
+     * Develop an open-source, multi-platform visualization application.
+     * Support distributed computation models to process large data sets.
+     * Create an open, flexible, and intuitive user interface.
+     * Develop an extensible architecture based on open standards.
+ .
+ ParaView runs on distributed and shared memory parallel as well as
+ single processor systems and has been successfully tested on Windows,
+ Mac OS X, Linux and various Unix workstations, clusters and
+ supercomputers. Under the hood, ParaView uses the Visualization
+ Toolkit as the data processing and rendering engine and has a user
+ interface written using Qt.
+ 
+Package: paraview-dev
+Architecture: any
+Section: libdevel
+Depends: qt4-dev-tools, ${shlibs:Depends}, ${misc:Depends}, paraview (= ${binary:Version})
+Recommends: qt4-dev-tools (>= 4.3.3-2)
+Description: Parallel Visualization Application. Development header files
+ ParaView is an open-source, multi-platform application designed to
+ visualize data sets of size varying from small to very large. The
+ goals of the ParaView project include the following:
+ .
+     * Develop an open-source, multi-platform visualization application.
+     * Support distributed computation models to process large data sets.
+     * Create an open, flexible, and intuitive user interface.
+     * Develop an extensible architecture based on open standards.
+ .
+ ParaView runs on distributed and shared memory parallel as well as
+ single processor systems and has been successfully tested on Windows,
+ Mac OS X, Linux and various Unix workstations, clusters and
+ supercomputers. Under the hood, ParaView uses the Visualization
+ Toolkit as the data processing and rendering engine and has a user
+ interface written using Qt. Development header files
+
+Package: paraview-doc
+Architecture: all
+Recommends: paraview
+Section: doc
+Depends: ${misc:Depends}
+Description: Parallel Visualization Application. Comprehensive documentation
+ ParaView is an open-source, multi-platform application designed to
+ visualize data sets of size varying from small to very large. The
+ goals of the ParaView project include the following:
+ .
+     * Develop an open-source, multi-platform visualization application.
+     * Support distributed computation models to process large data sets.
+     * Create an open, flexible, and intuitive user interface.
+     * Develop an extensible architecture based on open standards.
+ .
+ ParaView runs on distributed and shared memory parallel as well as
+ single processor systems and has been successfully tested on Windows,
+ Mac OS X, Linux and various Unix workstations, clusters and
+ supercomputers. Under the hood, ParaView uses the Visualization
+ Toolkit as the data processing and rendering engine and has a user
+ interface written using Qt. Comprehensive documentation.
+
+Package: paraview-python
+Architecture: any
+Section: python
+Depends: paraview (= ${binary:Version}), ${python:Depends}, ${misc:Depends}, 
+ ${shlibs:Depends}, python (>= 2.7), python (<<2.8), python-vtk
+Provides: ${python:Provides}
+Description: Parallel Visualization Application. python-support
+ ParaView is an open-source, multi-platform application designed to
+ visualize data sets of size varying from small to very large. The
+ goals of the ParaView project include the following:
+ .
+     * Develop an open-source, multi-platform visualization application.
+     * Support distributed computation models to process large data sets.
+     * Create an open, flexible, and intuitive user interface.
+     * Develop an extensible architecture based on open standards.
+ .
+ ParaView runs on distributed and shared memory parallel as well as
+ single processor systems and has been successfully tested on Windows,
+ Mac OS X, Linux and various Unix workstations, clusters and
+ supercomputers. Under the hood, ParaView uses the Visualization
+ Toolkit as the data processing and rendering engine and has a user
+ interface written using Qt. Enables python support.
