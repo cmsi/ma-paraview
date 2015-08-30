@@ -10,3 +10,4 @@ workaround_strict-aliasing_in_mpi4py_MPI.patch
 fix_FTBFS_boost149.patch
 fix_FTBFS_gcc-4.7.patch
 install_all_cmake_files.patch
+gl_version.patch

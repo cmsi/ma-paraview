@@ -1,0 +1,11 @@
+--- a/VTK/Rendering/vtkOpenGLExtensionManager.cxx
++++ b/VTK/Rendering/vtkOpenGLExtensionManager.cxx
+@@ -390,7 +390,7 @@
+ 
+   if (!success)
+     {
+-    vtkErrorMacro("Extension " << name << " could not be loaded.");
++    vtkWarningMacro("Extension " << name << " could not be loaded.");
+     }
+ }
+ 

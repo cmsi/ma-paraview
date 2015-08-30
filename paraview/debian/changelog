@@ -1,3 +1,9 @@
+paraview (3.14.1-6+1) UNRELEASED; urgency=low
+
+  * Removed GL_VERSION_1_5 Error.
+
+ -- Synge Todo <wistaria@phys.s.u-tokyo.ac.jp>  Sun, 30 Aug 2015 15:35:26 +0900
+
 paraview (3.14.1-6) unstable; urgency=low
 
   * [6183021] Install ParaViewUse.cmake.
